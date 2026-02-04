@@ -72,18 +72,6 @@ namespace example.Core
             model = Content.Load<Model>("hexagon");
             var texture1 = Content.Load<Texture2D>("square");
 
-            foreach (var mesh in model.Meshes)
-            {
-                foreach (var part in mesh.MeshParts)
-                {
-                    var elements = part.VertexBuffer.VertexDeclaration.GetVertexElements();
-                    foreach (var e in elements)
-                        System.Diagnostics.Debug.WriteLine(
-                            $"{e.VertexElementUsage} {e.UsageIndex} {e.VertexElementFormat}"
-                        );
-                }
-            }
-
             textureArray = new TextureArray(GraphicsDevice, texture1.Width, texture1.Height, 3);
             textureArray.Add(0, texture1);
             textureArray.Add(1, texture1);
